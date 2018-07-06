@@ -20,14 +20,14 @@ function PostItem (props) {
         创建时间：{post.date}
       </div>
       <div className="like">
-        <span><img src={like} onClick={onHandleClick}/></span>
+        <span><img src={like} onClick={onHandleClick} alt="点赞"/></span>
         <span>{post.vote}</span>
       </div>
     </li>
   )
 }
 
-PostItem.PropTypes = {
+PostItem.propTypes = {
   post: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
