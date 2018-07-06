@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './PostItem.css'
+import like from '../image/like-default.png';
 
 function PostItem (props) {
   const onHandleClick = () => {
@@ -7,8 +9,8 @@ function PostItem (props) {
   }
   const {post} = props
   return (
-    <li>
-      <div>
+    <li className="item">
+      <div className="title">
         {post.title}
       </div>
       <div>
@@ -17,8 +19,8 @@ function PostItem (props) {
       <div>
         创建时间：{post.date}
       </div>
-      <div>
-        <button onClick={onHandleClick}>点赞</button>
+      <div className="like">
+        <span><img src={like} onClick={onHandleClick}/></span>
         <span>{post.vote}</span>
       </div>
     </li>

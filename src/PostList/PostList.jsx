@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import PostItem from '../PostItem/PostItem'
+import './PostList.css'
 
 class PostList extends Component {
   constructor (props) {
@@ -41,8 +42,8 @@ class PostList extends Component {
 
   render () {
     return (
-      <div>
-        帖子列表:
+      <div className="container">
+        <h2>帖子列表</h2>
         <ul>
           {
             this.state.posts.map(item => 
