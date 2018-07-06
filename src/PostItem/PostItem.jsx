@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 function PostItem (props) {
-  const handleClick = () => {
+  const onHandleClick = () => {
     props.onVote(props.post.id)
   }
   const {post} = props
@@ -12,20 +12,20 @@ function PostItem (props) {
         {post.title}
       </div>
       <div>
-        创建人：<span>{post.author}</span>
+        创建人：{post.author}
       </div>
       <div>
-        创建时间：<span>{post.date}</span>
+        创建时间：{post.date}
       </div>
       <div>
-        <button onClick={handleClick}>点赞</button>
+        <button onClick={onHandleClick}>点赞</button>
         <span>{post.vote}</span>
       </div>
     </li>
   )
 }
 
-PostItem.propTypes = {
+PostItem.PropTypes = {
   post: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,

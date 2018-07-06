@@ -1,0 +1,61 @@
+import React, {Component} from 'react'
+import PostItem from '../PostItem/PostItem'
+
+class PostList extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      posts: []
+    }
+    this.timer = null
+    this.handleVoteClick = this.handleVoteClick.bind(this)
+  }
+
+  componentDidMount () {
+    this.timer = setTimeout(() => {
+      this.setState({
+        posts: [
+          { id: 1, title: '学习 React', author: '陈二狗', date: '2018-07-05 20:11', vote: 0 },
+          { id: 2, title: '巩固自己的技能', author: '陈二狗', date: '2018-07-05 20:12', vote: 0 },
+          { id: 3, title: '找一份更好的工作', author: '陈二狗', date: '2018-07-05 20:13', vote: 0 }
+        ]
+      })
+    }, 1000);
+  }
+
+  componentWillUnmount () {
+    if (this.timer) {
+      clearTimeout(this.timer)
+    }
+  }
+
+  handleVoteClick (id) {
+    const posts = this.state.posts.map(item => {
+      const post = id === item.id ? {...item, vote: ++item.vote} : item;
+      return post
+    })
+    this.setState({
+      posts
+    })
+  }
+
+  render () {
+    return (
+      <div>
+        帖子列表:
+        <ul>
+          {
+            this.state.posts.map(item => 
+              <PostItem
+                post={item}
+                onVote={this.handleVoteClick}
+              />
+            )
+          }
+        </ul>
+      </div>
+    )
+  }
+}
+
+export default PostList
