@@ -10,6 +10,7 @@ class PostList extends Component {
     }
     this.timer = null
     this.handleVoteClick = this.handleVoteClick.bind(this)
+    this.handleSave = this.handleSave.bind(this)
   }
 
   componentDidMount () {
@@ -40,6 +41,16 @@ class PostList extends Component {
     })
   }
 
+  handleSave (post) {
+    const posts = this.state.posts.map(item => {
+      const newItem = item.id === post.id ? post: item;
+      return newItem
+    })
+    this.setState({
+      posts
+    })
+  }
+
   render () {
     return (
       <div className="container">
@@ -51,6 +62,7 @@ class PostList extends Component {
                 key={item.id}
                 post={item}
                 onVote={this.handleVoteClick}
+                onSave={this.handleSave}
               />
             )
           }
