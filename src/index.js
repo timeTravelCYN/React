@@ -1,5 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PostList from "./PostList/PostList";
+import App from "./React16/Portals/App";
 
-ReactDOM.render( < PostList / > , document.getElementById('root'))
+ReactDOM.render( < App / > , document.getElementById('root'))
