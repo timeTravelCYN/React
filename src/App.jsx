@@ -7,11 +7,11 @@ class App extends Component {
   render () {
     return (
       <Router>
-        <Swtich>
+        <Switch>
           <Route path='/' exact component={Home}/>
           <Route path='/login' component={Login}/>
           <Route path='/posts' component={Home}/>
-        </Swtich>
+        </Switch>
       </Router>
     )
   }
